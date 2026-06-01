@@ -19,6 +19,7 @@ jobs:
           cd ./second-action-react-demo
           npm run test
   deploy:
+    needs: test-job
     runs-on: ubuntu-latest
     steps:
       - name: Get code
