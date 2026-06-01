@@ -14,7 +14,7 @@ jobs:
               run: | 
                 cd ./practice1
                 npm ci
-            - name: Install Dependencies
+            - name: Lint Project
               run: | 
                 cd ./practice1
                 npm run lint
