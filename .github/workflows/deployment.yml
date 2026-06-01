@@ -32,6 +32,8 @@ jobs:
           cd ./second-action-react-demo
           npm ci
       - name: Build Project
-        run: npm run build
+        run:  |
+          cd ./second-action-react-demo
+          npm run build
       - name: Deploy
         run: echo "Deploying..."
