@@ -1,0 +1,54 @@
+name: Practice deploy
+on: push
+jobs:
+    lint:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get Code
+              uses: actions/checkout@6
+            - name: Install Node
+              uses: actions/setup-node@v6
+              with:
+                node-version: latest
+            - name: Install Dependencies
+              run: | 
+                cd ./practice1
+                npm ci
+            - name: Install Dependencies
+              run: | 
+                cd ./practice1
+                npm run lint
+    build:
+        needs: lint
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get Code
+              uses: actions/checkout@6
+            - name: Install Node
+              uses: actions/setup-node@v6
+              with:
+                node-version: latest
+            - name: Install Dependencies
+              run: | 
+                cd ./practice1
+                npm ci
+            - name: Build Project
+              run: | 
+                cd ./practice1
+                npm run build
+    deploy:
+        needs: build
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get Code
+              uses: actions/checkout@6
+            - name: Install Node
+              uses: actions/setup-node@v6
+              with:
+                node-version: latest
+            - name: Install Dependencies
+              run: | 
+                cd ./practice1
+                npm ci
+            - name: Deploy
+              run: echo "Deploying..."
