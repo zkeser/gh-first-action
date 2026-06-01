@@ -1,0 +1,21 @@
+name: First React App
+on: push
+jobs:
+  test-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v6
+      - name: Install Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: latest
+      - name: Install dependencies
+        run: |
+          cd ./second-action-react-demo
+          npm ci
+      - name: Run test
+        run: |
+          cd ./second-action-react-demo
+          npm run test
+          
